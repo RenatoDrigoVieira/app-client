@@ -23,6 +23,9 @@ import { DialogEditProductComponent } from './dialog-edit-product/dialog-edit-pr
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents:[
+    DialogEditProductComponent
+  ]
 })
 export class AppModule { }

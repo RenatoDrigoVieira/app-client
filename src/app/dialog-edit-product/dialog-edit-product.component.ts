@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Product } from '../product.model';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'app-dialog-edit-product',
@@ -8,11 +9,18 @@ import { Product } from '../product.model';
 })
 export class DialogEditProductComponent implements OnInit {
 
-  product: Product = {_id: '',name: '',department:'',price:0}
+  product: Product = {_id:'',name:'',department:'',price:0}
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<DialogEditProductComponent>,
+    @Inject(MAT_DIALOG_DATA) public p: Product)
+    { 
+      this.product = p
+    }
 
   ngOnInit() {
+  }
+  cancel(){
+    this.dialogRef.close()
   }
 
 }
